@@ -45,22 +45,22 @@ export default async function DashboardPage() {
   return (
     <div>
       {/* ── Masthead ── */}
-      <section className="pt-12 pb-10 text-center border-b border-rule">
-        <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-accent mb-5">
+      <section className="pt-14 pb-16 text-center border-b border-rule">
+        <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-accent mb-6 anim-fade-up">
           {currentMonth} Edition
         </p>
-        <h1 className="font-serif text-5xl md:text-7xl font-normal tracking-tight text-ink leading-[0.95] mb-4">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-[96px] font-normal tracking-tight text-ink leading-[0.95] mb-5 anim-fade-up delay-1">
           Your <em>Gift</em> Guide
         </h1>
-        <p className="font-editorial text-xl text-ink-light italic">
+        <p className="font-editorial text-[22px] font-light text-ink-light italic anim-fade-up delay-2">
           Curated picks for the people you love
           {profile?.name ? `, ${profile.name}` : ""}
         </p>
-        <div className="w-12 h-px bg-accent mx-auto mt-6" />
+        <div className="w-12 h-px bg-accent mx-auto mt-7 anim-fade-in delay-4" />
       </section>
 
       {/* ── Upcoming Occasions ── */}
-      <div className="section-header mt-12">
+      <div className="section-header anim-fade-up delay-3">
         <h2>Upcoming Occasions</h2>
       </div>
 
@@ -89,7 +89,7 @@ export default async function DashboardPage() {
                 >
                   {urgencyLabel}
                 </span>
-                <p className="font-serif text-5xl font-bold text-accent leading-none mb-1">
+                <p className="font-serif text-[54px] font-bold text-accent leading-none mb-1 anim-number-pop">
                   {daysLeft}
                 </p>
                 <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-ink-light mb-5">
@@ -119,7 +119,7 @@ export default async function DashboardPage() {
       )}
 
       {/* ── Your Giftees ── */}
-      <div className="section-header mt-14">
+      <div className="section-header">
         <h2>Your Giftees</h2>
       </div>
 
@@ -166,7 +166,7 @@ export default async function DashboardPage() {
       )}
 
       {/* ── They Mentioned ── */}
-      <div className="section-header mt-14">
+      <div className="section-header">
         <h2>They Mentioned&hellip;</h2>
       </div>
 
@@ -175,13 +175,13 @@ export default async function DashboardPage() {
           {recentMentions.map((mention, i) => (
             <div
               key={mention.id}
-              className={`p-8 ${
+              className={`px-9 py-10 ${
                 i < recentMentions.length - 1
                   ? "md:border-r border-b md:border-b-0 border-rule"
                   : ""
               }`}
             >
-              <div className="pull-quote mb-5 pl-2">
+              <div className="pull-quote mb-5 pl-3">
                 {mention.content}
               </div>
               <div className="flex items-center gap-2.5">
@@ -210,7 +210,7 @@ export default async function DashboardPage() {
       )}
 
       {/* ── Quick Actions ── */}
-      <div className="section-header mt-14">
+      <div className="section-header">
         <h2>Quick Actions</h2>
       </div>
 
@@ -260,8 +260,8 @@ export default async function DashboardPage() {
       </div>
 
       {/* ── Footer ── */}
-      <footer className="mt-16 border-t border-rule py-8 text-center">
-        <p className="font-serif text-base font-bold text-ink mb-1">
+      <footer className="mt-20 border-t border-rule py-10 text-center">
+        <p className="font-serif text-base font-bold text-ink mb-2">
           Rehgalo
         </p>
         <p className="text-[11px] tracking-[0.12em] uppercase text-ink-light">

@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable} font-body antialiased`}
+        className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable} font-sans antialiased`}
       >
         {children}
       </body>
