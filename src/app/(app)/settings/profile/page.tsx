@@ -88,7 +88,7 @@ export default function SettingsProfilePage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
+        <Loader2 className="w-6 h-6 animate-spin text-ink-muted" />
       </div>
     );
   }
@@ -96,30 +96,43 @@ export default function SettingsProfilePage() {
   if (!profile) return null;
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-10">
+      {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Your Profile</h1>
-        <p className="text-gray-500 text-sm mt-1">
-          Your gift preferences (so others know what to get you)
+        <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body mb-2">
+          Settings
         </p>
+        <h1 className="font-serif text-3xl font-bold text-ink">
+          Your Profile
+        </h1>
+        <p className="font-editorial text-lg italic text-ink-light mt-1">
+          Your gift preferences, so others know what to get you
+        </p>
+        <div className="h-px bg-rule mt-6" />
       </div>
 
       <form onSubmit={handleSave}>
-        <div className="bg-white rounded-2xl border border-gray-100 p-6 space-y-5">
+        <div className="border border-rule p-8 space-y-6">
+          <div className="section-header !mb-0">
+            <h2>Personal Details</h2>
+          </div>
+
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-gray-700">Name</label>
+            <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
+              Name
+            </label>
             <input
               type="text"
               value={profile.name}
               onChange={(e) =>
                 setProfile({ ...profile, name: e.target.value })
               }
-              className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+              className="input-editorial"
             />
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
               Interests
             </label>
             <input
@@ -131,14 +144,14 @@ export default function SettingsProfilePage() {
                   interests: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
                 })
               }
-              className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+              className="input-editorial"
               placeholder="cooking, reading, hiking"
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6">
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
                 Styles
               </label>
               <input
@@ -150,12 +163,12 @@ export default function SettingsProfilePage() {
                     styles: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
                   })
                 }
-                className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+                className="input-editorial"
                 placeholder="minimalist, modern"
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
                 Colors
               </label>
               <input
@@ -167,14 +180,14 @@ export default function SettingsProfilePage() {
                     colors: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
                   })
                 }
-                className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+                className="input-editorial"
                 placeholder="blue, green"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
               Dislikes
             </label>
             <input
@@ -186,14 +199,14 @@ export default function SettingsProfilePage() {
                   dislikes: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
                 })
               }
-              className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+              className="input-editorial"
               placeholder="candles, socks"
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6">
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
                 Budget Min ($)
               </label>
               <input
@@ -207,11 +220,11 @@ export default function SettingsProfilePage() {
                       : null,
                   })
                 }
-                className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+                className="input-editorial"
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body">
                 Budget Max ($)
               </label>
               <input
@@ -225,14 +238,16 @@ export default function SettingsProfilePage() {
                       : null,
                   })
                 }
-                className="w-full px-3 py-2.5 rounded-xl border border-gray-200 focus:border-rose-300 focus:ring-2 focus:ring-rose-100 outline-none transition-all text-sm"
+                className="input-editorial"
               />
             </div>
           </div>
 
-          <div className="pt-2 border-t border-gray-100">
-            <p className="text-xs text-gray-500 mb-1">Your shareable profile</p>
-            <code className="text-xs bg-gray-50 px-3 py-2 rounded-lg block text-gray-600">
+          <div className="pt-4 border-t border-rule">
+            <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body mb-2">
+              Your shareable profile
+            </p>
+            <code className="text-xs bg-paper-warm px-4 py-2.5 block text-ink-light font-body border border-rule">
               {process.env.NEXT_PUBLIC_APP_URL}/p/{profile.shareable_slug}
             </code>
           </div>
@@ -240,7 +255,7 @@ export default function SettingsProfilePage() {
           <button
             type="submit"
             disabled={saving}
-            className="w-full bg-gradient-to-r from-rose-500 to-amber-500 text-white py-2.5 rounded-xl font-medium hover:from-rose-600 hover:to-amber-600 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+            className="btn-accent w-full justify-center disabled:opacity-50"
           >
             {saving ? (
               <Loader2 className="w-4 h-4 animate-spin" />

@@ -1,206 +1,190 @@
 import Link from "next/link";
-import {
-  Gift,
-  Sparkles,
-  Users,
-  Bell,
-  ArrowRight,
-  Heart,
-  Star,
-  Zap,
-} from "lucide-react";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Nav */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-rose-500 to-amber-500 rounded-lg flex items-center justify-center">
-              <Gift className="w-4 h-4 text-white" />
+    <div className="min-h-screen bg-paper font-body">
+      {/* ── Top Nav ── */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-paper/92 backdrop-blur-md border-b border-rule">
+        <div className="max-w-[1320px] mx-auto px-6 h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-ink flex items-center justify-center">
+              <span className="font-serif text-paper text-sm font-bold leading-none">
+                R
+              </span>
             </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-rose-600 to-amber-600 bg-clip-text text-transparent">
+            <span className="font-serif text-lg tracking-wide text-ink">
               Rehgalo
             </span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-6">
             <Link
               href="/login"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-4 py-2"
+              className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-light hover:text-ink transition-colors"
             >
               Sign In
             </Link>
-            <Link
-              href="/signup"
-              className="text-sm font-medium bg-gradient-to-r from-rose-500 to-amber-500 text-white px-4 py-2 rounded-xl hover:from-rose-600 hover:to-amber-600 transition-all shadow-lg shadow-rose-500/20"
-            >
+            <Link href="/signup" className="btn-accent">
               Get Started
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-rose-50 text-rose-600 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            <Sparkles className="w-4 h-4" />
-            AI-Powered Gift Recommendations
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+      {/* ── Hero / Masthead ── */}
+      <section className="pt-36 pb-24 px-6">
+        <div className="max-w-[860px] mx-auto text-center anim-fade-up">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-light mb-8">
+            AI-Powered Gift Curation
+          </p>
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-[80px] font-bold text-ink leading-[1.05] mb-8">
             Never give a{" "}
-            <span className="bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent">
-              bad gift
-            </span>{" "}
+            <em className="italic">bad gift</em>{" "}
             again
           </h1>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-            Rehgalo remembers what everyone likes, tracks when occasions are
-            coming up, and uses AI to find the perfect gift every time.
+          <p className="font-editorial text-xl md:text-2xl italic text-ink-light leading-relaxed max-w-[600px] mx-auto mb-10">
+            Rehgalo remembers what everyone loves, anticipates every occasion,
+            and finds the perfect gift&mdash;so you never have to guess.
           </p>
-          <div className="flex items-center gap-4 justify-center">
-            <Link
-              href="/signup"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-amber-500 text-white px-6 py-3 rounded-xl font-medium hover:from-rose-600 hover:to-amber-600 transition-all shadow-lg shadow-rose-500/20 hover:shadow-rose-500/30"
-            >
-              Start Free <ArrowRight className="w-4 h-4" />
+          <div className="w-16 h-px bg-accent mx-auto mb-10" />
+          <div className="flex items-center gap-5 justify-center">
+            <Link href="/signup" className="btn-accent">
+              Start Free &rarr;
             </Link>
-            <Link
-              href="#features"
-              className="inline-flex items-center gap-2 text-gray-600 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors"
-            >
+            <Link href="#features" className="btn-editorial">
               See How It Works
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-20 bg-gray-50/50 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              Everything you need for thoughtful gifting
-            </h2>
-            <p className="text-gray-500">
-              From remembering hints to finding deals.
-            </p>
+      {/* ── Features Section ── */}
+      <section id="features" className="py-24 px-6">
+        <div className="max-w-[1120px] mx-auto">
+          <div className="section-header">
+            <h2>What Rehgalo Does</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/50 transition-all">
-              <div className="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center mb-4">
-                <Sparkles className="w-5 h-5 text-rose-500" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1.5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-rule anim-fade-up" style={{ animationDelay: "0.1s" }}>
+            {/* Feature 1 */}
+            <div className="border-b border-rule lg:border-r px-6 py-8 md:px-8 md:py-10 transition-colors hover:bg-paper-warm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+                01 &mdash; Intelligence
+              </p>
+              <h3 className="font-serif text-xl font-semibold text-ink mb-3">
                 AI Recommendations
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Get personalized gift ideas based on interests, past gifts, and
-                real-time hints.
+              <p className="text-sm text-ink-light leading-relaxed">
+                Personalized gift ideas drawn from interests, past gifts, and
+                real-time hints. The algorithm learns what lands and what
+                doesn&rsquo;t.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/50 transition-all">
-              <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
-                <Users className="w-5 h-5 text-amber-500" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1.5">
+            {/* Feature 2 */}
+            <div className="border-b border-rule lg:border-r px-6 py-8 md:px-8 md:py-10 transition-colors hover:bg-paper-warm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+                02 &mdash; People
+              </p>
+              <h3 className="font-serif text-xl font-semibold text-ink mb-3">
                 Giftee Profiles
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Keep track of preferences, sizes, styles, and dislikes for
-                everyone.
+              <p className="text-sm text-ink-light leading-relaxed">
+                Keep detailed records of preferences, sizes, styles, and
+                dislikes for every person in your life. Everything in one place.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/50 transition-all">
-              <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
-                <Bell className="w-5 h-5 text-purple-500" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1.5">
+            {/* Feature 3 */}
+            <div className="border-b border-rule px-6 py-8 md:px-8 md:py-10 transition-colors hover:bg-paper-warm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+                03 &mdash; Timing
+              </p>
+              <h3 className="font-serif text-xl font-semibold text-ink mb-3">
                 Smart Reminders
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Never miss a birthday or anniversary with customizable
-                reminders.
+              <p className="text-sm text-ink-light leading-relaxed">
+                Never miss a birthday or anniversary. Customizable alerts give
+                you time to find something thoughtful&mdash;not last-minute.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/50 transition-all">
-              <div className="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center mb-4">
-                <Heart className="w-5 h-5 text-pink-500" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1.5">
+            {/* Feature 4 */}
+            <div className="border-b border-rule lg:border-r px-6 py-8 md:px-8 md:py-10 transition-colors hover:bg-paper-warm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+                04 &mdash; Capture
+              </p>
+              <h3 className="font-serif text-xl font-semibold text-ink mb-3">
                 &ldquo;They Mentioned&rdquo; Notes
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm text-ink-light leading-relaxed">
                 Capture hints in seconds when someone mentions wanting
-                something.
+                something. One tap, and the idea is saved for later.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/50 transition-all">
-              <div className="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center mb-4">
-                <Star className="w-5 h-5 text-yellow-500" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1.5">
+            {/* Feature 5 */}
+            <div className="border-b border-rule lg:border-r px-6 py-8 md:px-8 md:py-10 transition-colors hover:bg-paper-warm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+                05 &mdash; Memory
+              </p>
+              <h3 className="font-serif text-xl font-semibold text-ink mb-3">
                 Gift History
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Track what you gave and how it landed. Never repeat a bad gift.
+              <p className="text-sm text-ink-light leading-relaxed">
+                Track what you gave, when you gave it, and how it was received.
+                Build on what works and never repeat a miss.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/50 transition-all">
-              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-                <Zap className="w-5 h-5 text-blue-500" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1.5">
+            {/* Feature 6 */}
+            <div className="border-b border-rule px-6 py-8 md:px-8 md:py-10 transition-colors hover:bg-paper-warm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+                06 &mdash; Value
+              </p>
+              <h3 className="font-serif text-xl font-semibold text-ink mb-3">
                 Price Tracking
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Save products and get alerts when prices drop. Shop at the right
-                time.
+              <p className="text-sm text-ink-light leading-relaxed">
+                Save products you&rsquo;re considering and get notified when
+                prices drop. Buy at exactly the right moment.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-rose-500 to-amber-500 rounded-3xl p-12 text-white">
-            <h2 className="text-3xl font-bold mb-3">
-              Ready to become the best gift giver?
-            </h2>
-            <p className="text-white/80 mb-8">
-              Join Rehgalo for free and start making every gift count.
-            </p>
-            <Link
-              href="/signup"
-              className="inline-flex items-center gap-2 bg-white text-rose-600 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors shadow-lg"
-            >
-              Create Free Account <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+      {/* ── CTA Section ── */}
+      <section className="bg-accent py-24 px-6 anim-fade-in" style={{ animationDelay: "0.2s" }}>
+        <div className="max-w-[720px] mx-auto text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+            Ready to become the best gift giver?
+          </h2>
+          <p className="font-editorial text-lg md:text-xl italic text-white/80 mb-10">
+            Join Rehgalo for free and start making every gift count.
+          </p>
+          <Link
+            href="/signup"
+            className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-white px-6 py-3 border border-white bg-transparent hover:bg-white hover:text-accent transition-all"
+          >
+            Create Free Account &rarr;
+          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-100 py-8 px-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-gradient-to-br from-rose-500 to-amber-500 rounded-lg flex items-center justify-center">
-              <Gift className="w-3 h-3 text-white" />
+      {/* ── Footer ── */}
+      <footer className="border-t border-rule py-12 px-6">
+        <div className="max-w-[1320px] mx-auto flex flex-col items-center gap-4">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-6 h-6 bg-ink flex items-center justify-center">
+              <span className="font-serif text-paper text-xs font-bold leading-none">
+                R
+              </span>
             </div>
-            <span className="text-sm font-semibold text-gray-600">
+            <span className="font-serif text-sm tracking-wide text-ink">
               Rehgalo
             </span>
-          </div>
-          <p className="text-xs text-gray-400">
+          </Link>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-ink-muted">
             &copy; {new Date().getFullYear()} Rehgalo. All rights reserved.
           </p>
         </div>

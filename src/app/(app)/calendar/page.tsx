@@ -30,28 +30,38 @@ export default async function CalendarPage() {
     occasions?.filter((o) => new Date(o.date) < now) || [];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
+      {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
-          Occasions Calendar
+        <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-ink-muted font-body mb-2">
+          Calendar
+        </p>
+        <h1 className="font-serif text-3xl font-bold text-ink">
+          Occasions
         </h1>
-        <p className="text-gray-500 text-sm mt-1">
+        <p className="font-editorial text-lg italic text-ink-light mt-1">
           Track birthdays, anniversaries, and holidays
         </p>
+        <div className="h-px bg-rule mt-6" />
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 p-5">
-        <h2 className="font-semibold text-gray-900 mb-3">Add Occasion</h2>
-        <AddOccasionForm giftees={giftees || []} />
+      {/* Add Occasion */}
+      <div>
+        <div className="section-header">
+          <h2>Add Occasion</h2>
+        </div>
+        <div className="border border-rule p-6">
+          <AddOccasionForm giftees={giftees || []} />
+        </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 p-5">
-        <h2 className="font-semibold text-gray-900 flex items-center gap-2 mb-4">
-          <CalendarDays className="w-4 h-4 text-amber-500" />
-          Upcoming ({upcoming.length})
-        </h2>
+      {/* Upcoming */}
+      <div>
+        <div className="section-header">
+          <h2>Upcoming ({upcoming.length})</h2>
+        </div>
         {upcoming.length > 0 ? (
-          <div className="space-y-3">
+          <div>
             {upcoming.map((occasion) => {
               const daysLeft = Math.ceil(
                 (new Date(occasion.date).getTime() - now.getTime()) /
@@ -60,13 +70,13 @@ export default async function CalendarPage() {
               return (
                 <div
                   key={occasion.id}
-                  className="flex items-center justify-between py-2 border-t border-gray-50 first:border-0"
+                  className="flex items-center justify-between py-3 border-b border-rule"
                 >
                   <div>
-                    <p className="text-sm font-medium text-gray-900">
+                    <p className="text-sm font-semibold text-ink font-body">
                       {occasion.name}
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-ink-muted font-body mt-0.5">
                       {(occasion.giftees as { name: string } | null)?.name} &middot;{" "}
                       {new Date(occasion.date).toLocaleDateString("en-US", {
                         weekday: "short",
@@ -77,18 +87,16 @@ export default async function CalendarPage() {
                     </p>
                   </div>
                   <span
-                    className={`text-xs font-medium px-2.5 py-1 rounded-full ${
+                    className={`badge-urgency ${
                       daysLeft <= 3
-                        ? "bg-red-50 text-red-600"
-                        : daysLeft <= 7
-                          ? "bg-amber-50 text-amber-600"
-                          : daysLeft <= 14
-                            ? "bg-yellow-50 text-yellow-600"
-                            : "bg-gray-50 text-gray-600"
+                        ? "badge-high"
+                        : daysLeft <= 14
+                          ? "badge-med"
+                          : "badge-low"
                     }`}
                   >
                     {daysLeft === 0
-                      ? "Today!"
+                      ? "Today"
                       : daysLeft === 1
                         ? "Tomorrow"
                         : `${daysLeft} days`}
@@ -98,28 +106,29 @@ export default async function CalendarPage() {
             })}
           </div>
         ) : (
-          <p className="text-sm text-gray-400 text-center py-4">
+          <p className="text-sm text-ink-muted font-editorial italic py-4">
             No upcoming occasions
           </p>
         )}
       </div>
 
+      {/* Past */}
       {past.length > 0 && (
-        <div className="bg-white rounded-2xl border border-gray-100 p-5">
-          <h2 className="font-semibold text-gray-500 mb-4">
-            Past ({past.length})
-          </h2>
-          <div className="space-y-2">
+        <div>
+          <div className="section-header">
+            <h2>Past ({past.length})</h2>
+          </div>
+          <div className="opacity-50">
             {past.slice(0, 10).map((occasion) => (
               <div
                 key={occasion.id}
-                className="flex items-center justify-between py-2 border-t border-gray-50 first:border-0 opacity-60"
+                className="flex items-center justify-between py-3 border-b border-rule"
               >
                 <div>
-                  <p className="text-sm font-medium text-gray-700">
+                  <p className="text-sm font-semibold text-ink font-body">
                     {occasion.name}
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-ink-muted font-body mt-0.5">
                     {(occasion.giftees as { name: string } | null)?.name} &middot;{" "}
                     {new Date(occasion.date).toLocaleDateString()}
                   </p>

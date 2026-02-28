@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Playfair_Display,
+  Cormorant_Garamond,
+  DM_Sans,
+} from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Rehgalo - AI Gift Recommendations",
+  title: "Rehgalo — The Art of Thoughtful Gifting",
   description:
-    "Never give a bad gift again. AI-powered recommendations, gift tracking, and occasion reminders.",
+    "Never give a bad gift again. AI-curated recommendations, gift tracking, and occasion reminders.",
 };
 
 export default function RootLayout({
@@ -19,7 +39,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body
+        className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable} font-body antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
